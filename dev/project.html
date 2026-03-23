@@ -1,369 +1,883 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="./assets/icon.png">
-<title>تفاصيل المشروع</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --yellow:#F5E642;--orange:#FF5C00;--teal:#00D9C0;
-  --dark:#0D0D0D;--mid:#141414;--card:#1A1A1A;
-  --border:rgba(255,255,255,0.08);--text:#F0EDE6;--muted:#888880;
-}
-html{scroll-behavior:smooth}
-body{font-family:'Cairo',sans-serif;background:var(--dark);color:var(--text);min-height:100vh;cursor:none}
-.cursor{position:fixed;width:10px;height:10px;background:var(--yellow);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);will-change:left,top;mix-blend-mode:difference}
-.cursor-trail{position:fixed;width:32px;height:32px;border:1.5px solid var(--yellow);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:0.4;will-change:left,top}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="./assets/icon.png" />
+    <title>تفاصيل المشروع</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&family=Cairo:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --yellow: #f5e642;
+        --orange: #ff5c00;
+        --teal: #00d9c0;
+        --dark: #0d0d0d;
+        --mid: #141414;
+        --card: #1a1a1a;
+        --border: rgba(255, 255, 255, 0.08);
+        --text: #f0ede6;
+        --muted: #888880;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Cairo", sans-serif;
+        background: var(--dark);
+        color: var(--text);
+        min-height: 100vh;
+        cursor: none;
+      }
+      .cursor {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background: var(--yellow);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        will-change: left, top;
+        mix-blend-mode: difference;
+      }
+      .cursor-trail {
+        position: fixed;
+        width: 32px;
+        height: 32px;
+        border: 1.5px solid var(--yellow);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9998;
+        transform: translate(-50%, -50%);
+        opacity: 0.4;
+        will-change: left, top;
+      }
 
-/* ── TOPBAR ── */
-.topbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 3rem;display:flex;align-items:center;justify-content:space-between;background:rgba(13,13,13,0.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-.back-btn{display:inline-flex;align-items:center;gap:0.5rem;font-family:'Space Mono',monospace;font-size:0.75rem;letter-spacing:0.08em;color:var(--muted);text-decoration:none;transition:color 0.2s;cursor:none}
-.back-btn:hover{color:var(--yellow)}
-.back-arrow{font-size:1rem;transition:transform 0.2s}
-.back-btn:hover .back-arrow{transform:translateX(4px)}
-.topbar-badge{font-family:'Space Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;color:var(--orange);border:1px solid rgba(255,92,0,0.3);padding:0.3rem 0.8rem;border-radius:2px}
+      /* ── TOPBAR ── */
+      .topbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 1rem 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(13, 13, 13, 0.9);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--border);
+      }
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: "Space Mono", monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.2s;
+        cursor: none;
+      }
+      .back-btn:hover {
+        color: var(--yellow);
+      }
+      .back-arrow {
+        font-size: 1rem;
+        transition: transform 0.2s;
+      }
+      .back-btn:hover .back-arrow {
+        transform: translateX(4px);
+      }
+      .topbar-badge {
+        font-family: "Space Mono", monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        color: var(--orange);
+        border: 1px solid rgba(255, 92, 0, 0.3);
+        padding: 0.3rem 0.8rem;
+        border-radius: 2px;
+      }
 
-/* ── HERO ── */
-.project-hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
-.hero-left{padding:8rem 3rem 4rem 3rem;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
-.hero-right{position:relative;overflow:hidden}
-.hero-right-img{width:100%;height:100%;object-fit:cover;opacity:0.55;transition:opacity 0.5s}
-.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(270deg,transparent 40%,var(--dark) 100%)}
-.hero-num{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(6rem,12vw,14rem);color:rgba(255,255,255,0.03);position:absolute;top:50%;left:0;transform:translateY(-50%);pointer-events:none;letter-spacing:-0.05em;line-height:1}
-.project-type-badge{display:inline-flex;align-items:center;gap:0.5rem;font-family:'Space Mono',monospace;font-size:0.7rem;letter-spacing:0.12em;padding:0.35rem 0.9rem;border-radius:2px;margin-bottom:1.5rem;width:fit-content}
-.project-title{font-family:'Cairo',sans-serif;font-weight:900;font-size:clamp(2.2rem,4vw,3.8rem);line-height:1.05;letter-spacing:-0.03em;margin-bottom:1rem}
-.project-title .line2{-webkit-text-stroke:1.5px var(--orange);color:transparent}
-.project-short{color:var(--muted);font-size:1rem;line-height:1.75;max-width:480px;margin-bottom:2rem}
-.hero-meta{display:flex;gap:2rem;flex-wrap:wrap}
-.meta-item{display:flex;flex-direction:column;gap:4px}
-.meta-label{font-family:'Space Mono',monospace;font-size:0.62rem;color:var(--orange);letter-spacing:0.15em;text-transform:uppercase}
-.meta-value{font-family:'Cairo',sans-serif;font-size:0.9rem;font-weight:600}
+      /* ── HERO ── */
+      .project-hero {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-left {
+        padding: 8rem 3rem 4rem 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        z-index: 2;
+      }
+      .hero-right {
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-right-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.55;
+        transition: opacity 0.5s;
+      }
+      .hero-right::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(270deg, transparent 40%, var(--dark) 100%);
+      }
+      .hero-num {
+        font-family: "Syne", sans-serif;
+        font-weight: 800;
+        font-size: clamp(6rem, 12vw, 14rem);
+        color: rgba(255, 255, 255, 0.03);
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        pointer-events: none;
+        letter-spacing: -0.05em;
+        line-height: 1;
+      }
+      .project-type-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: "Space Mono", monospace;
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        padding: 0.35rem 0.9rem;
+        border-radius: 2px;
+        margin-bottom: 1.5rem;
+        width: fit-content;
+      }
+      .project-title {
+        font-family: "Cairo", sans-serif;
+        font-weight: 900;
+        font-size: clamp(2.2rem, 4vw, 3.8rem);
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        margin-bottom: 1rem;
+      }
+      .project-title .line2 {
+        -webkit-text-stroke: 1.5px var(--orange);
+        color: transparent;
+      }
+      .project-short {
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.75;
+        max-width: 480px;
+        margin-bottom: 2rem;
+      }
+      .hero-meta {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+      .meta-item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .meta-label {
+        font-family: "Space Mono", monospace;
+        font-size: 0.62rem;
+        color: var(--orange);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+      .meta-value {
+        font-family: "Cairo", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
 
-/* ── CONTENT ── */
-.content-wrap{max-width:1100px;margin:0 auto;padding:5rem 3rem}
-.content-grid{display:grid;grid-template-columns:1fr 320px;gap:3rem;align-items:start}
+      /* ── CONTENT ── */
+      .content-wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 5rem 3rem;
+      }
+      .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        gap: 3rem;
+        align-items: start;
+      }
 
-/* ── SECTION LABEL ── */
-.sec-label{font-family:'Space Mono',monospace;font-size:0.68rem;color:var(--orange);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
-.sec-label::before{content:'';width:20px;height:1px;background:var(--orange)}
+      /* ── SECTION LABEL ── */
+      .sec-label {
+        font-family: "Space Mono", monospace;
+        font-size: 0.68rem;
+        color: var(--orange);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .sec-label::before {
+        content: "";
+        width: 20px;
+        height: 1px;
+        background: var(--orange);
+      }
 
-/* ── DESCRIPTION ── */
-.desc-block{margin-bottom:3rem}
-.desc-text{color:var(--muted);font-size:0.95rem;line-height:1.9}
+      /* ── DESCRIPTION ── */
+      .desc-block {
+        margin-bottom: 3rem;
+      }
+      .desc-text {
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.9;
+      }
 
-/* ── GALLERY ── */
-.gallery-block{margin-bottom:3rem}
-.gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
-.gallery-img{width:100%;height:200px;object-fit:cover;border-radius:8px;border:1px solid var(--border);transition:transform 0.3s,border-color 0.3s;cursor:none}
-.gallery-img:hover{transform:scale(1.02);border-color:rgba(255,255,255,0.2)}
-.gallery-img.wide{grid-column:1/-1;height:300px}
+      /* ── GALLERY ── */
+      .gallery-block {
+        margin-bottom: 3rem;
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+      }
+      .gallery-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        transition:
+          transform 0.3s,
+          border-color 0.3s;
+        cursor: none;
+      }
+      .gallery-img:hover {
+        transform: scale(1.02);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+      .gallery-img.wide {
+        grid-column: 1/-1;
+        height: 300px;
+      }
 
-/* ── CHALLENGES / FEATURES ── */
-.features-list{display:flex;flex-direction:column;gap:0.75rem;margin-bottom:3rem}
-.feature-item{display:flex;align-items:flex-start;gap:0.75rem;padding:1rem 1.25rem;background:var(--card);border:1px solid var(--border);border-radius:8px;transition:border-color 0.2s}
-.feature-item:hover{border-color:rgba(245,230,66,0.2)}
-.feature-dot{width:6px;height:6px;border-radius:50%;background:var(--yellow);flex-shrink:0;margin-top:6px}
-.feature-text{font-size:0.88rem;color:var(--muted);line-height:1.6}
+      /* ── CHALLENGES / FEATURES ── */
+      .features-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-bottom: 3rem;
+      }
+      .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 1rem 1.25rem;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        transition: border-color 0.2s;
+      }
+      .feature-item:hover {
+        border-color: rgba(245, 230, 66, 0.2);
+      }
+      .feature-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--yellow);
+        flex-shrink: 0;
+        margin-top: 6px;
+      }
+      .feature-text {
+        font-size: 0.88rem;
+        color: var(--muted);
+        line-height: 1.6;
+      }
 
-/* ── SIDEBAR ── */
-.sidebar{display:flex;flex-direction:column;gap:1.25rem;position:sticky;top:6rem}
-.sidebar-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.5rem;transition:border-color 0.2s}
-.sidebar-card:hover{border-color:rgba(255,255,255,0.12)}
-.sidebar-card-title{font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--orange);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem}
-.stack-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
-.tag{font-family:'Space Mono',monospace;font-size:0.65rem;padding:0.25rem 0.6rem;border-radius:2px;letter-spacing:0.04em}
-.tag-yellow{background:rgba(245,230,66,0.1);color:var(--yellow)}
-.tag-orange{background:rgba(255,92,0,0.12);color:var(--orange)}
-.tag-teal{background:rgba(0,217,192,0.1);color:var(--teal)}
-.stat-row{display:flex;flex-direction:column;gap:0.75rem}
-.stat-item{display:flex;justify-content:space-between;align-items:center;padding-bottom:0.6rem;border-bottom:1px solid var(--border)}
-.stat-item:last-child{border-bottom:none;padding-bottom:0}
-.stat-key{font-size:0.8rem;color:var(--muted)}
-.stat-val{font-family:'Space Mono',monospace;font-size:0.78rem;color:var(--text)}
-.cta-btn{display:block;text-align:center;font-family:'Cairo',sans-serif;font-weight:700;font-size:0.9rem;padding:0.85rem 1rem;border-radius:4px;text-decoration:none;transition:all 0.2s;cursor:none}
-.cta-btn.live{background:var(--orange);color:#fff;margin-bottom:0.6rem}
-.cta-btn.live:hover{background:var(--yellow);color:var(--dark)}
-.cta-btn.github{background:transparent;border:1px solid var(--border);color:var(--text)}
-.cta-btn.github:hover{border-color:var(--teal);color:var(--teal)}
+      /* ── SIDEBAR ── */
+      .sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        position: sticky;
+        top: 6rem;
+      }
+      .sidebar-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 1.5rem;
+        transition: border-color 0.2s;
+      }
+      .sidebar-card:hover {
+        border-color: rgba(255, 255, 255, 0.12);
+      }
+      .sidebar-card-title {
+        font-family: "Space Mono", monospace;
+        font-size: 0.65rem;
+        color: var(--orange);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+      .stack-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+      .tag {
+        font-family: "Space Mono", monospace;
+        font-size: 0.65rem;
+        padding: 0.25rem 0.6rem;
+        border-radius: 2px;
+        letter-spacing: 0.04em;
+      }
+      .tag-yellow {
+        background: rgba(245, 230, 66, 0.1);
+        color: var(--yellow);
+      }
+      .tag-orange {
+        background: rgba(255, 92, 0, 0.12);
+        color: var(--orange);
+      }
+      .tag-teal {
+        background: rgba(0, 217, 192, 0.1);
+        color: var(--teal);
+      }
+      .stat-row {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .stat-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 0.6rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .stat-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .stat-key {
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+      .stat-val {
+        font-family: "Space Mono", monospace;
+        font-size: 0.78rem;
+        color: var(--text);
+      }
+      .cta-btn {
+        display: block;
+        text-align: center;
+        font-family: "Cairo", sans-serif;
+        font-weight: 700;
+        font-size: 0.9rem;
+        padding: 0.85rem 1rem;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: all 0.2s;
+        cursor: none;
+      }
+      .cta-btn.live {
+        background: var(--orange);
+        color: #fff;
+        margin-bottom: 0.6rem;
+      }
+      .cta-btn.live:hover {
+        background: var(--yellow);
+        color: var(--dark);
+      }
+      .cta-btn.github {
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text);
+      }
+      .cta-btn.github:hover {
+        border-color: var(--teal);
+        color: var(--teal);
+      }
 
-/* ── LOADING / ERROR ── */
-.state-wrap{min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;text-align:center}
-.spinner{width:40px;height:40px;border:2px solid var(--border);border-top-color:var(--yellow);border-radius:50%;animation:spin 0.8s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.state-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.4rem}
-.state-sub{font-size:0.85rem;color:var(--muted)}
-.error-code{font-family:'Space Mono',monospace;font-size:0.72rem;color:var(--orange);margin-top:0.5rem}
+      /* ── LOADING / ERROR ── */
+      .state-wrap {
+        min-height: 60vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        text-align: center;
+      }
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 2px solid var(--border);
+        border-top-color: var(--yellow);
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .state-title {
+        font-family: "Syne", sans-serif;
+        font-weight: 700;
+        font-size: 1.4rem;
+      }
+      .state-sub {
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+      .error-code {
+        font-family: "Space Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--orange);
+        margin-top: 0.5rem;
+      }
 
-/* ── SCROLL REVEAL ── */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.6s ease,transform 0.6s ease}
-.reveal.visible{opacity:1;transform:none}
+      /* ── SCROLL REVEAL ── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
 
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:var(--dark)}
-::-webkit-scrollbar-thumb{background:var(--orange);border-radius:2px}
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--dark);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--orange);
+        border-radius: 2px;
+      }
 
-@media(max-width:900px){
-  .topbar{padding:1rem 1.5rem}
-  .project-hero{grid-template-columns:1fr;min-height:auto}
-  .hero-left{padding:6rem 1.5rem 3rem}
-  .hero-right{height:260px}
-  .content-wrap{padding:3rem 1.5rem}
-  .content-grid{grid-template-columns:1fr}
-  .sidebar{position:static}
-  .gallery-grid{grid-template-columns:1fr}
-  .gallery-img.wide{height:200px}
-}
-</style>
-</head>
-<body>
+      @media (max-width: 900px) {
+        .topbar {
+          padding: 1rem 1.5rem;
+        }
+        .project-hero {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+        .hero-left {
+          padding: 6rem 1.5rem 3rem;
+        }
+        .hero-right {
+          height: 260px;
+        }
+        .content-wrap {
+          padding: 3rem 1.5rem;
+        }
+        .content-grid {
+          grid-template-columns: 1fr;
+        }
+        .sidebar {
+          position: static;
+        }
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+        .gallery-img.wide {
+          height: 200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-trail" id="trail"></div>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-trail" id="trail"></div>
+    <header class="topbar">
+      <a href="abdullah-landing.html" class="back-btn"
+        ><span class="back-arrow">&larr;</span> عبدالله محمد توفيق</a
+      >
+      <span class="topbar-badge" id="topbarBadge">PROJECT</span>
+    </header>
 
-<header class="topbar">
-  <a href="abdullah-landing.html" class="back-btn"><span class="back-arrow">&larr;</span> عبدالله محمد توفيق</a>
-  <span class="topbar-badge" id="topbarBadge">PROJECT</span>
-</header>
+    <main id="mainContent">
+      <div class="state-wrap" id="loadingState">
+        <div class="spinner"></div>
+        <p class="state-title">جاري التحميل</p>
+        <p class="state-sub">يتم جلب تفاصيل المشروع...</p>
+      </div>
+    </main>
 
-<main id="mainContent">
-  <div class="state-wrap" id="loadingState">
-    <div class="spinner"></div>
-    <p class="state-title">جاري التحميل</p>
-    <p class="state-sub">يتم جلب تفاصيل المشروع...</p>
-  </div>
-</main>
+    <script>
+      // ================================================================
+      // DEFAULT DATA — بيانات افتراضية تظهر لو مفيش project_id في الـ URL
+      // ================================================================
+      var DEFAULT_DATA = {
+        id: 1,
+        title: "متجر ملابس",
+        titleLine2: "WooCommerce",
+        type: "WordPress",
+        typeBg: "rgba(255,92,0,0.15)",
+        typeColor: "#FF5C00",
+        shortDesc:
+          "متجر إلكتروني احترافي لبيع الملابس مبني بـ WordPress و WooCommerce مع نظام دفع متعدد وتجربة مستخدم محسّنة.",
+        fullDesc:
+          "منصة تجارة إلكترونية متكاملة لبيع الملابس بُنيت بـ WordPress و WooCommerce. تحتوي على نظام دفع متعدد يشمل Visa وفوري والتحويل البنكي، لوحة تحكم كاملة لإدارة المنتجات والطلبات والعملاء، نظام كوبونات وعروض موسمية، وتصميم متجاوب 100% مع جميع الأجهزة. تم النشر على سيرفر cPanel مع شهادة SSL.",
+        features: [
+          "نظام دفع متعدد: Visa / فوري / تحويل بنكي",
+          "لوحة تحكم كاملة لإدارة المنتجات والطلبات",
+          "نظام كوبونات وعروض موسمية تلقائية",
+          "تصميم متجاوب على جميع الأجهزة",
+          "تحسين SEO مدمج مع Yoast",
+          "نشر على cPanel مع SSL مجاني",
+        ],
+        stack: [
+          "WordPress",
+          "WooCommerce",
+          "PHP",
+          "MySQL",
+          "Elementor",
+          "cPanel",
+        ],
+        stackColors: [
+          "tag-orange",
+          "tag-orange",
+          "tag-orange",
+          "tag-teal",
+          "tag-yellow",
+          "tag-teal",
+        ],
+        stats: {
+          المدة: "6 أسابيع",
+          الدور: "Full Stack",
+          الحالة: "مكتمل",
+          السنة: "2024",
+        },
+        images: [
+          "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&q=80",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80",
+          "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=900&q=80",
+        ],
+        liveUrl: "#",
+        githubUrl: "https://github.com/abdallah-mohamed-dev",
+      };
 
-<script>
-// ================================================================
-// DEFAULT DATA — بيانات افتراضية تظهر لو مفيش project_id في الـ URL
-// ================================================================
-var DEFAULT_DATA = {
-  id: 1,
-  title: "متجر ملابس",
-  titleLine2: "WooCommerce",
-  type: "WordPress",
-  typeBg: "rgba(255,92,0,0.15)",
-  typeColor: "#FF5C00",
-  shortDesc: "متجر إلكتروني احترافي لبيع الملابس مبني بـ WordPress و WooCommerce مع نظام دفع متعدد وتجربة مستخدم محسّنة.",
-  fullDesc: "منصة تجارة إلكترونية متكاملة لبيع الملابس بُنيت بـ WordPress و WooCommerce. تحتوي على نظام دفع متعدد يشمل Visa وفوري والتحويل البنكي، لوحة تحكم كاملة لإدارة المنتجات والطلبات والعملاء، نظام كوبونات وعروض موسمية، وتصميم متجاوب 100% مع جميع الأجهزة. تم النشر على سيرفر cPanel مع شهادة SSL.",
-  features: [
-    "نظام دفع متعدد: Visa / فوري / تحويل بنكي",
-    "لوحة تحكم كاملة لإدارة المنتجات والطلبات",
-    "نظام كوبونات وعروض موسمية تلقائية",
-    "تصميم متجاوب على جميع الأجهزة",
-    "تحسين SEO مدمج مع Yoast",
-    "نشر على cPanel مع SSL مجاني"
-  ],
-  stack: ["WordPress","WooCommerce","PHP","MySQL","Elementor","cPanel"],
-  stackColors: ["tag-orange","tag-orange","tag-orange","tag-teal","tag-yellow","tag-teal"],
-  stats: {
-    "المدة": "6 أسابيع",
-    "الدور": "Full Stack",
-    "الحالة": "مكتمل",
-    "السنة": "2024"
-  },
-  images: [
-    "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&q=80",
-    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80",
-    "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=900&q=80"
-  ],
-  liveUrl: "#",
-  githubUrl: "https://github.com/abdallah-mohamed-dev"
-};
+      // ================================================================
+      // fetchProject — بتاخد project_id من الـ URL وتبعت GET request
+      //
+      // طريقة الاستخدام:
+      //   من صفحة المشاريع، افتح الصفحة دي بـ:
+      //   project.html?id=1
+      //   project.html?id=2
+      //   إلخ...
+      //
+      // الـ function بتاخد الـ id وتبعت request لـ API:
+      //   GET https://your-api.com/api/projects/{id}
+      //
+      // لو الـ API رجع بيانات → تعرضها
+      // لو فشل أو مفيش id → تعرض DEFAULT_DATA
+      //
+      // مثال على شكل الـ response المتوقع من الـ API:
+      // {
+      //   "id": 1,
+      //   "title": "...",
+      //   "titleLine2": "...",
+      //   "type": "WordPress",
+      //   "typeBg": "rgba(255,92,0,0.15)",
+      //   "typeColor": "#FF5C00",
+      //   "shortDesc": "...",
+      //   "fullDesc": "...",
+      //   "features": ["...", "..."],
+      //   "stack": ["WordPress", "PHP"],
+      //   "stackColors": ["tag-orange", "tag-orange"],
+      //   "stats": { "المدة": "6 أسابيع", "الدور": "Full Stack" },
+      //   "images": ["https://...", "https://..."],
+      //   "liveUrl": "https://...",
+      //   "githubUrl": "https://..."
+      // }
+      // ================================================================
+      async function fetchProject(projectId) {
+        try {
+          // ▼ بدّل الـ URL ده بعنوان الـ API بتاعك
+          var res = await fetch(
+            "http://localhost:8000/api/projects/" + projectId,
+          );
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          var data = await res.json();
+          return data;
 
-// ================================================================
-// fetchProject — بتاخد project_id من الـ URL وتبعت GET request
-//
-// طريقة الاستخدام:
-//   من صفحة المشاريع، افتح الصفحة دي بـ:
-//   project.html?id=1
-//   project.html?id=2
-//   إلخ...
-//
-// الـ function بتاخد الـ id وتبعت request لـ API:
-//   GET https://your-api.com/api/projects/{id}
-//
-// لو الـ API رجع بيانات → تعرضها
-// لو فشل أو مفيش id → تعرض DEFAULT_DATA
-//
-// مثال على شكل الـ response المتوقع من الـ API:
-// {
-//   "id": 1,
-//   "title": "...",
-//   "titleLine2": "...",
-//   "type": "WordPress",
-//   "typeBg": "rgba(255,92,0,0.15)",
-//   "typeColor": "#FF5C00",
-//   "shortDesc": "...",
-//   "fullDesc": "...",
-//   "features": ["...", "..."],
-//   "stack": ["WordPress", "PHP"],
-//   "stackColors": ["tag-orange", "tag-orange"],
-//   "stats": { "المدة": "6 أسابيع", "الدور": "Full Stack" },
-//   "images": ["https://...", "https://..."],
-//   "liveUrl": "https://...",
-//   "githubUrl": "https://..."
-// }
-// ================================================================
-async function fetchProject(projectId) {
-  try {
-    // ▼ بدّل الـ URL ده بعنوان الـ API بتاعك
-    // var res = await fetch('https://your-api.com/api/projects/' + projectId);
-    // if (!res.ok) throw new Error('HTTP ' + res.status);
-    // var data = await res.json();
-    // return data;
+          // ━━ مؤقتاً: بيرجع DEFAULT_DATA بعد simulate loading ━━
+          await new Promise(function (r) {
+            setTimeout(r, 900);
+          });
+          return DEFAULT_DATA;
+        } catch (err) {
+          console.error("fetchProject error:", err);
+          return null;
+        }
+      }
 
-    // ━━ مؤقتاً: بيرجع DEFAULT_DATA بعد simulate loading ━━
-    await new Promise(function(r){ setTimeout(r, 900); });
-    return DEFAULT_DATA;
+      // ================================================================
+      // RENDER
+      // ================================================================
+      function renderProject(p) {
+        document.title =
+          p.title + " " + (p.titleLine2 || "") + " | عبدالله توفيق";
+        document.getElementById("topbarBadge").textContent =
+          p.type.toUpperCase();
 
-  } catch(err) {
-    console.error('fetchProject error:', err);
-    return null;
-  }
-}
+        var tagsHtml = p.stack
+          .map(function (t, i) {
+            return (
+              '<span class="tag ' +
+              (p.stackColors[i] || "tag-teal") +
+              '">' +
+              t +
+              "</span>"
+            );
+          })
+          .join("");
 
-// ================================================================
-// RENDER
-// ================================================================
-function renderProject(p) {
-  document.title = p.title + ' ' + (p.titleLine2 || '') + ' | عبدالله توفيق';
-  document.getElementById('topbarBadge').textContent = p.type.toUpperCase();
+        var statsHtml = Object.keys(p.stats)
+          .map(function (k) {
+            return (
+              '<div class="stat-item"><span class="stat-key">' +
+              k +
+              '</span><span class="stat-val">' +
+              p.stats[k] +
+              "</span></div>"
+            );
+          })
+          .join("");
 
-  var tagsHtml = p.stack.map(function(t,i){
-    return '<span class="tag ' + (p.stackColors[i]||'tag-teal') + '">' + t + '</span>';
-  }).join('');
+        var featuresHtml = p.features
+          .map(function (f) {
+            return (
+              '<div class="feature-item"><span class="feature-dot"></span><span class="feature-text">' +
+              f +
+              "</span></div>"
+            );
+          })
+          .join("");
 
-  var statsHtml = Object.keys(p.stats).map(function(k){
-    return '<div class="stat-item"><span class="stat-key">' + k + '</span><span class="stat-val">' + p.stats[k] + '</span></div>';
-  }).join('');
+        // images
+        var img0 = p.images[0] || "";
+        var galleryHtml = "";
+        if (p.images.length >= 3) {
+          galleryHtml =
+            '<img class="gallery-img wide reveal" src="' +
+            p.images[0] +
+            '" alt="" loading="lazy">' +
+            '<img class="gallery-img reveal" src="' +
+            p.images[1] +
+            '" alt="" loading="lazy" style="transition-delay:0.1s">' +
+            '<img class="gallery-img reveal" src="' +
+            p.images[2] +
+            '" alt="" loading="lazy" style="transition-delay:0.2s">';
+        } else if (p.images.length === 2) {
+          galleryHtml =
+            '<img class="gallery-img reveal" src="' +
+            p.images[0] +
+            '" alt="" loading="lazy">' +
+            '<img class="gallery-img reveal" src="' +
+            p.images[1] +
+            '" alt="" loading="lazy" style="transition-delay:0.1s">';
+        } else {
+          galleryHtml =
+            '<img class="gallery-img wide reveal" src="' +
+            (p.images[0] || "") +
+            '" alt="" loading="lazy">';
+        }
 
-  var featuresHtml = p.features.map(function(f){
-    return '<div class="feature-item"><span class="feature-dot"></span><span class="feature-text">' + f + '</span></div>';
-  }).join('');
-
-  // images
-  var img0 = p.images[0] || '';
-  var galleryHtml = '';
-  if (p.images.length >= 3) {
-    galleryHtml =
-      '<img class="gallery-img wide reveal" src="' + p.images[0] + '" alt="" loading="lazy">' +
-      '<img class="gallery-img reveal" src="' + p.images[1] + '" alt="" loading="lazy" style="transition-delay:0.1s">' +
-      '<img class="gallery-img reveal" src="' + p.images[2] + '" alt="" loading="lazy" style="transition-delay:0.2s">';
-  } else if (p.images.length === 2) {
-    galleryHtml =
-      '<img class="gallery-img reveal" src="' + p.images[0] + '" alt="" loading="lazy">' +
-      '<img class="gallery-img reveal" src="' + p.images[1] + '" alt="" loading="lazy" style="transition-delay:0.1s">';
-  } else {
-    galleryHtml = '<img class="gallery-img wide reveal" src="' + (p.images[0]||'') + '" alt="" loading="lazy">';
-  }
-
-  document.getElementById('mainContent').innerHTML =
-    '<section class="project-hero">' +
-      '<div class="hero-left">' +
-        '<div class="hero-num">' + String(p.id).padStart(2,'0') + '</div>' +
-        '<span class="project-type-badge" style="background:' + p.typeBg + ';color:' + p.typeColor + '">' + p.type + '</span>' +
-        '<h1 class="project-title">' + p.title + (p.titleLine2 ? '<br><span class="line2">' + p.titleLine2 + '</span>' : '') + '</h1>' +
-        '<p class="project-short">' + p.shortDesc + '</p>' +
-        '<div class="hero-meta">' +
-          Object.keys(p.stats).slice(0,3).map(function(k){
-            return '<div class="meta-item"><span class="meta-label">' + k + '</span><span class="meta-value">' + p.stats[k] + '</span></div>';
-          }).join('') +
-        '</div>' +
-      '</div>' +
-      '<div class="hero-right"><img class="hero-right-img" src="' + img0 + '" alt="' + p.title + '"></div>' +
-    '</section>' +
-
-    '<div class="content-wrap">' +
-      '<div class="content-grid">' +
-
-        '<div class="main-col">' +
+        document.getElementById("mainContent").innerHTML =
+          '<section class="project-hero">' +
+          '<div class="hero-left">' +
+          '<div class="hero-num">' +
+          String(p.id).padStart(2, "0") +
+          "</div>" +
+          '<span class="project-type-badge" style="background:' +
+          p.typeBg +
+          ";color:" +
+          p.typeColor +
+          '">' +
+          p.type +
+          "</span>" +
+          '<h1 class="project-title">' +
+          p.title +
+          (p.titleLine2
+            ? '<br><span class="line2">' + p.titleLine2 + "</span>"
+            : "") +
+          "</h1>" +
+          '<p class="project-short">' +
+          p.shortDesc +
+          "</p>" +
+          '<div class="hero-meta">' +
+          Object.keys(p.stats)
+            .slice(0, 3)
+            .map(function (k) {
+              return (
+                '<div class="meta-item"><span class="meta-label">' +
+                k +
+                '</span><span class="meta-value">' +
+                p.stats[k] +
+                "</span></div>"
+              );
+            })
+            .join("") +
+          "</div>" +
+          "</div>" +
+          '<div class="hero-right"><img class="hero-right-img" src="' +
+          img0 +
+          '" alt="' +
+          p.title +
+          '"></div>' +
+          "</section>" +
+          '<div class="content-wrap">' +
+          '<div class="content-grid">' +
+          '<div class="main-col">' +
           '<div class="desc-block reveal">' +
-            '<p class="sec-label">عن المشروع</p>' +
-            '<p class="desc-text">' + p.fullDesc + '</p>' +
-          '</div>' +
-
+          '<p class="sec-label">عن المشروع</p>' +
+          '<p class="desc-text">' +
+          p.fullDesc +
+          "</p>" +
+          "</div>" +
           '<div class="gallery-block reveal">' +
-            '<p class="sec-label">معرض الصور</p>' +
-            '<div class="gallery-grid">' + galleryHtml + '</div>' +
-          '</div>' +
-
+          '<p class="sec-label">معرض الصور</p>' +
+          '<div class="gallery-grid">' +
+          galleryHtml +
+          "</div>" +
+          "</div>" +
           '<div class="reveal">' +
-            '<p class="sec-label">أبرز المميزات</p>' +
-            '<div class="features-list">' + featuresHtml + '</div>' +
-          '</div>' +
-        '</div>' +
-
-        '<aside class="sidebar">' +
+          '<p class="sec-label">أبرز المميزات</p>' +
+          '<div class="features-list">' +
+          featuresHtml +
+          "</div>" +
+          "</div>" +
+          "</div>" +
+          '<aside class="sidebar">' +
           '<div class="sidebar-card reveal">' +
-            '<p class="sidebar-card-title">التقنيات المستخدمة</p>' +
-            '<div class="stack-tags">' + tagsHtml + '</div>' +
-          '</div>' +
+          '<p class="sidebar-card-title">التقنيات المستخدمة</p>' +
+          '<div class="stack-tags">' +
+          tagsHtml +
+          "</div>" +
+          "</div>" +
           '<div class="sidebar-card reveal" style="transition-delay:0.1s">' +
-            '<p class="sidebar-card-title">تفاصيل المشروع</p>' +
-            '<div class="stat-row">' + statsHtml + '</div>' +
-          '</div>' +
+          '<p class="sidebar-card-title">تفاصيل المشروع</p>' +
+          '<div class="stat-row">' +
+          statsHtml +
+          "</div>" +
+          "</div>" +
           '<div class="reveal" style="transition-delay:0.2s">' +
-            '<a href="' + p.liveUrl + '" class="cta-btn live" target="_blank">مشاهدة المشروع &rarr;</a>' +
-            '<a href="' + p.githubUrl + '" class="cta-btn github" target="_blank">عرض على GitHub</a>' +
-          '</div>' +
-        '</aside>' +
+          '<a href="' +
+          p.liveUrl +
+          '" class="cta-btn live" target="_blank">مشاهدة المشروع &rarr;</a>' +
+          '<a href="' +
+          p.githubUrl +
+          '" class="cta-btn github" target="_blank">عرض على GitHub</a>' +
+          "</div>" +
+          "</aside>" +
+          "</div>" +
+          "</div>";
 
-      '</div>' +
-    '</div>';
+        initReveal();
+      }
 
-  initReveal();
-}
+      function showError(msg) {
+        document.getElementById("mainContent").innerHTML =
+          '<div class="state-wrap">' +
+          '<p class="state-title">حدث خطأ</p>' +
+          '<p class="state-sub">' +
+          msg +
+          "</p>" +
+          '<a href="abdullah-landing.html" class="cta-btn live" style="margin-top:1rem;display:inline-block;padding:0.7rem 1.5rem;text-decoration:none">الرجوع للرئيسية</a>' +
+          "</div>";
+      }
 
-function showError(msg) {
-  document.getElementById('mainContent').innerHTML =
-    '<div class="state-wrap">' +
-      '<p class="state-title">حدث خطأ</p>' +
-      '<p class="state-sub">' + msg + '</p>' +
-      '<a href="abdullah-landing.html" class="cta-btn live" style="margin-top:1rem;display:inline-block;padding:0.7rem 1.5rem;text-decoration:none">الرجوع للرئيسية</a>' +
-    '</div>';
-}
+      function initReveal() {
+        var els = document.querySelectorAll(".reveal");
+        var obs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) e.target.classList.add("visible");
+            });
+          },
+          { threshold: 0.08 },
+        );
+        els.forEach(function (el) {
+          obs.observe(el);
+        });
+      }
 
-function initReveal() {
-  var els = document.querySelectorAll('.reveal');
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  els.forEach(function(el){ obs.observe(el); });
-}
+      // ================================================================
+      // INIT — بياخد الـ id من الـ URL ويبدأ
+      // ================================================================
+      (async function init() {
+        var params = new URLSearchParams(window.location.search);
+        var projectId = params.get("id");
 
-// ================================================================
-// INIT — بياخد الـ id من الـ URL ويبدأ
-// ================================================================
-(async function init() {
-  var params = new URLSearchParams(window.location.search);
-  var projectId = params.get('id');
+        // لو مفيش id → عرض default مباشرة
+        if (!projectId) {
+          renderProject(DEFAULT_DATA);
+          return;
+        }
 
-  // لو مفيش id → عرض default مباشرة
-  if (!projectId) {
-    renderProject(DEFAULT_DATA);
-    return;
-  }
+        var data = await fetchProject(projectId);
+        if (data) {
+          renderProject(data);
+        } else {
+          showError("تعذّر تحميل بيانات المشروع رقم " + projectId);
+        }
+      })();
 
-  var data = await fetchProject(projectId);
-  if (data) {
-    renderProject(data);
-  } else {
-    showError('تعذّر تحميل بيانات المشروع رقم ' + projectId);
-  }
-})();
-
-// ── Cursor ──
-var c = document.getElementById('cursor');
-var t = document.getElementById('trail');
-var mx=0,my=0,tx=0,ty=0;
-document.addEventListener('mousemove',function(e){ mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px'; });
-(function loop(){ tx+=(mx-tx)*0.12;ty+=(my-ty)*0.12;t.style.left=tx+'px';t.style.top=ty+'px';requestAnimationFrame(loop); })();
-</script>
-</body>
+      // ── Cursor ──
+      var c = document.getElementById("cursor");
+      var t = document.getElementById("trail");
+      var mx = 0,
+        my = 0,
+        tx = 0,
+        ty = 0;
+      document.addEventListener("mousemove", function (e) {
+        mx = e.clientX;
+        my = e.clientY;
+        c.style.left = mx + "px";
+        c.style.top = my + "px";
+      });
+      (function loop() {
+        tx += (mx - tx) * 0.12;
+        ty += (my - ty) * 0.12;
+        t.style.left = tx + "px";
+        t.style.top = ty + "px";
+        requestAnimationFrame(loop);
+      })();
+    </script>
+  </body>
 </html>

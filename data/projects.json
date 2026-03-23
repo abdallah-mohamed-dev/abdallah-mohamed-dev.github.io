@@ -1,0 +1,136 @@
+[
+    {
+        "id": 1,
+        "title": "متجر ملابس WooCommerce",
+        "type": "WordPress",
+        "typeBg": "rgba(255,92,0,0.15)",
+        "typeColor": "#FF5C00",
+        "shortDesc":
+            "متجر إلكتروني متكامل لبيع الملابس مبني بـ WordPress و WooCommerce.",
+        "fullDesc":
+            "منصة تجارة إلكترونية احترافية لبيع الملابس بنيت بـ WordPress و WooCommerce. تتضمن نظام دفع متعدد (Visa / فوري / تحويل بنكي)، لوحة تحكم كاملة لإدارة المنتجات والطلبات، نظام كوبونات وعروض، وتصميم متجاوب 100% مع الموبايل. تم النشر على سيرفر cPanel.",
+        "stack": [
+            "WordPress",
+            "WooCommerce",
+            "PHP",
+            "MySQL",
+            "cPanel",
+            "Elementor"
+        ],
+        "stackColors": [
+            "tag-orange",
+            "tag-orange",
+            "tag-orange",
+            "tag-teal",
+            "tag-teal",
+            "tag-yellow"
+        ],
+        "images": [
+            "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80",
+            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
+        ],
+        "liveUrl": "#",
+        "githubUrl": "#"
+    },
+    {
+        "id": 2,
+        "title": "موقع شركة عقارات",
+        "type": "WordPress",
+        "typeBg": "rgba(245,230,66,0.12)",
+        "typeColor": "#F5E642",
+        "shortDesc":
+            "موقع عقاري احترافي بنظام إدارة عقارات متكامل مع خريطة تفاعلية.",
+        "fullDesc":
+            "موقع شركة عقارات مبني على WordPress مع إضافة ACF وCustom Post Types لإدارة العقارات. يشمل فلترة متقدمة للبحث حسب المنطقة والسعر والنوع، خريطة Google Maps تفاعلية، نظام تواصل مباشر مع العملاء، وصفحات SEO محسّنة. تم النشر على cPanel مع SSL.",
+        "stack": [
+            "WordPress",
+            "ACF",
+            "PHP",
+            "MySQL",
+            "Google Maps API",
+            "cPanel"
+        ],
+        "stackColors": [
+            "tag-orange",
+            "tag-orange",
+            "tag-orange",
+            "tag-teal",
+            "tag-yellow",
+            "tag-teal"
+        ],
+        "images": [
+            "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80",
+            "https://images.unsplash.com/photo-1582407947304-fd86f28f3fde?w=800&q=80"
+        ],
+        "liveUrl": "#",
+        "githubUrl": "#"
+    },
+    {
+        "id": 3,
+        "title": "نظام إدارة مستشفى",
+        "type": "Laravel + Next.js",
+        "typeBg": "rgba(0,217,192,0.12)",
+        "typeColor": "#00D9C0",
+        "shortDesc":
+            "نظام متكامل لإدارة المستشفيات — المرضى، الأطباء، المواعيد، والتقارير.",
+        "fullDesc":
+            "نظام إدارة مستشفى متكامل بـ Backend Laravel (REST API) و Frontend Next.js. يشمل إدارة ملفات المرضى والأطباء، نظام حجز مواعيد ذكي مع تنبيهات SMS وEmail، لوحة إحصائيات تفاعلية، نظام صلاحيات متعدد المستويات (Admin / Doctor / Receptionist)، وقاعدة بيانات PostgreSQL مُحسَّنة للأداء. يعمل في بيئة Docker.",
+        "stack": [
+            "Laravel",
+            "Next.js",
+            "PostgreSQL",
+            "Docker",
+            "Sanctum",
+            "Tailwind"
+        ],
+        "stackColors": [
+            "tag-orange",
+            "tag-yellow",
+            "tag-teal",
+            "tag-teal",
+            "tag-orange",
+            "tag-yellow"
+        ],
+        "images": [
+            "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80",
+            "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=800&q=80"
+        ],
+        "liveUrl": "#",
+        "githubUrl": "https://github.com/abdallah-mohamed-dev"
+    },
+    {
+        "id": 4,
+        "title": "منصة تعليمية MERN",
+        "type": "MERN Stack",
+        "typeBg": "rgba(245,230,66,0.1)",
+        "typeColor": "#F5E642",
+        "shortDesc":
+            "منصة تعليمية أونلاين بالـ MERN Stack مع فيديوهات وكويزات تفاعلية.",
+        "fullDesc":
+            "منصة تعليمية متكاملة مبنية بالـ MERN Stack (MongoDB, Express, React, Node.js). تحتوي على نظام مستخدمين كامل (Instructor / Student)، رفع فيديوهات وملفات PDF، كويزات تفاعلية مع نتائج فورية، نظام تقدم المتعلم، دفع إلكتروني بـ Stripe، وإشعارات Real-time بـ Socket.io. منشورة على Docker مع CI/CD Pipeline.",
+        "stack": [
+            "MongoDB",
+            "Express",
+            "React",
+            "Node.js",
+            "Socket.io",
+            "Docker",
+            "Stripe"
+        ],
+        "stackColors": [
+            "tag-teal",
+            "tag-orange",
+            "tag-yellow",
+            "tag-orange",
+            "tag-teal",
+            "tag-teal",
+            "tag-yellow"
+        ],
+        "images": [
+            "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&q=80",
+            "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80"
+        ],
+        "liveUrl": "#",
+        "githubUrl": "https://github.com/abdallah-mohamed-dev"
+    }
+]
