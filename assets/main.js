@@ -5,8 +5,8 @@
 // =============================================
 const defaultProjects = [];
 let PROJECTS_DATA = [];
-// const baseUrl = "https://darkslateblue-crow-176027.hostingersite.com"; // replace with your API base URL
-const baseUrl = "http://localhost:8000"; // replace with your API base URL
+const baseUrl = "https://darkslateblue-crow-176027.hostingersite.com"; // replace with your API base URL
+// const baseUrl = "http://localhost:8000"; // replace with your API base URL
 
 // =============================================
 // fetchProjects — pass a URL to load from API
