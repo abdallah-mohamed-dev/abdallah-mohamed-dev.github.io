@@ -12,7 +12,7 @@ const baseUrl = "https://darkslateblue-crow-176027.hostingersite.com"; // replac
 // fetchProjects — pass a URL to load from API
 // Example usage (commented out):
 //
-fetchProjects(`${baseUrl}/api/projects`);
+fetchProjects(`${baseUrl}/api/projects/`);
 
 async function fetchProjects(url) {
   try {
