@@ -588,7 +588,8 @@
           "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=900&q=80",
         ],
         liveUrl: "#",
-        githubUrl: "https://github.com/abdallah-mohamed-dev",
+        figmaUrl: "#",
+        githubUrl: "#",
       };
 
       // ================================================================
@@ -629,17 +630,20 @@
         try {
           // ▼ بدّل الـ URL ده بعنوان الـ API بتاعك
           var res = await fetch(
-            "http://localhost:8000/api/projects/" + projectId,
+            "https://darkslateblue-crow-176027.hostingersite.com/api/projects/" +
+              projectId,
           );
           if (!res.ok) throw new Error("HTTP " + res.status);
           var data = await res.json();
-          return data;
+          console.log(data.data);
+
+          return data.data;
 
           // ━━ مؤقتاً: بيرجع DEFAULT_DATA بعد simulate loading ━━
-          await new Promise(function (r) {
-            setTimeout(r, 900);
-          });
-          return DEFAULT_DATA;
+          // await new Promise(function (r) {
+          //   setTimeout(r, 900);
+          // });
+          // return DEFAULT_DATA;
         } catch (err) {
           console.error("fetchProject error:", err);
           return null;
@@ -650,6 +654,7 @@
       // RENDER
       // ================================================================
       function renderProject(p) {
+        console.log("Rendering project:", p);
         document.title =
           p.title + " " + (p.titleLine2 || "") + " | عبدالله توفيق";
         document.getElementById("topbarBadge").textContent =
@@ -667,27 +672,31 @@
           })
           .join("");
 
-        var statsHtml = Object.keys(p.stats)
-          .map(function (k) {
-            return (
-              '<div class="stat-item"><span class="stat-key">' +
-              k +
-              '</span><span class="stat-val">' +
-              p.stats[k] +
-              "</span></div>"
-            );
-          })
-          .join("");
+        var statsHtml =
+          p.stats &&
+          Object.keys(p.stats)
+            .map(function (k) {
+              return (
+                '<div class="stat-item"><span class="stat-key">' +
+                k +
+                '</span><span class="stat-val">' +
+                p.stats[k] +
+                "</span></div>"
+              );
+            })
+            .join("");
 
-        var featuresHtml = p.features
-          .map(function (f) {
-            return (
-              '<div class="feature-item"><span class="feature-dot"></span><span class="feature-text">' +
-              f +
-              "</span></div>"
-            );
-          })
-          .join("");
+        var featuresHtml =
+          p.features &&
+          p.features
+            .map(function (f) {
+              return (
+                '<div class="feature-item"><span class="feature-dot"></span><span class="feature-text">' +
+                f +
+                "</span></div>"
+              );
+            })
+            .join("");
 
         // images
         var img0 = p.images[0] || "";
@@ -741,7 +750,7 @@
           p.shortDesc +
           "</p>" +
           '<div class="hero-meta">' +
-          Object.keys(p.stats)
+          Object.keys(p.stats || {})
             .slice(0, 3)
             .map(function (k) {
               return (
